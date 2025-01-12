@@ -17,18 +17,35 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .todo-header {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px solid red;
+            border-radius: 5px;
+            font-weight: bold;
         }
         .completed-task {
             text-decoration: line-through;
             color: #6c757d;
+        }
+        .made-by {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Cursive', sans-serif;
+            font-size: 14px;
+            color: gray;
         }
     </style>
 </head>
 <body>
 
 <div class="todo-container">
-    <h2 class="text-center mb-4">Todo App</h2>
-    <form id="todoForm" class="mb-3">
+    <span class="made-by">Made by SK</span>
+    <h2 class="todo-header">Todo App</h2>
+    <form id="todoForm" class="mb-3 mt-4">
         <div class="input-group">
             <input type="text" id="taskInput" class="form-control" placeholder="Enter a task" required>
             <button type="submit" class="btn btn-primary">Add Task</button>
