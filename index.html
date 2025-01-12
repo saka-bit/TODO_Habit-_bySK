@@ -100,6 +100,12 @@
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
+    // Format Date into "dd-MMM-yyyy hh:mm.aa"
+    function formatDate(dateTime) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+        return new Date(dateTime).toLocaleDateString('en-US', options).replace(',', '');
+    }
+
     // Render tasks
     function renderTodos() {
         todoList.innerHTML = '';
@@ -113,10 +119,11 @@
                 taskText.classList.add('completed-task');
             }
 
+            const formattedDateTime = formatDate(todo.dateTime);
+
             listItem.innerHTML = `
                 <div class="d-flex align-items-center">
-                    <span>${taskText.outerHTML}</span>
-                    <small class="ms-3">${todo.dateTime}</small>
+                    <span>${taskText.outerHTML} | ${formattedDateTime}</span>
                 </div>
                 <div>
                     <button class="btn btn-sm btn-success me-2" onclick="toggleComplete(${index})">${todo.completed ? 'Undo' : 'Complete'}</button>
