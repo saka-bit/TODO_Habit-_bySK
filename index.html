@@ -30,6 +30,9 @@
             <button type="submit" class="btn btn-primary">Add Task</button>
         </div>
     </form>
+    <div class="mb-3 text-end">
+        <button class="btn btn-danger" onclick="deleteAllTasks()">Delete All</button>
+    </div>
     <ul id="todoList" class="list-group">
         <!-- Tasks will be added here dynamically -->
     </ul>
@@ -90,6 +93,13 @@
     // Delete task
     function deleteTask(index) {
         todos.splice(index, 1);
+        saveTodos();
+        renderTodos();
+    }
+
+    // Delete all tasks
+    function deleteAllTasks() {
+        todos = [];
         saveTodos();
         renderTodos();
     }
